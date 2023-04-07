@@ -49,10 +49,7 @@ function App() {
       'board',
       JSON.stringify(newBoard)
     )
-    window.localStorage.setItem(
-      'turn',
-      JSON.stringify(turn)
-    )
+    window.localStorage.setItem('turn', newTurn)
     // Revisar si hay ganador
     const newWinner = checkWinner(newBoard)
     if (newWinner) {
