@@ -17,7 +17,7 @@
   width: 100%;
   height: 100%;
   border-radius: 0.3em;
-  font-size: 2rem;
+  font-size: 3rem;
   background-color: hsl(0, 0%, 20%);
   cursor: pointer;
   display: grid;
@@ -29,7 +29,7 @@
 }
 
 .turn {
-  margin-top: 2em;
+  margin-top: 3em;
   margin-inline: auto;
   display: flex;
   justify-content: center;
@@ -37,10 +37,35 @@
 }
 
 .turn .square {
-  width: 4rem;
-  height: 4rem;
+  width: 5rem;
+  height: 5rem;
 }
 
 .is-selected {
   box-shadow: 0 0 0 2px hsl(120, 100%, 50%);
+}
+
+.winner {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  padding: 2em;
+  border-radius: 0.3em;
+  background-color: hsl(0, 0%, 20%);
+}
+
+.winner h3 {
+  margin-top: 0;
+  font-weight: 500;
+}
+
+.winner-button {
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 0.3em;
+  font-size: inherit;
+  font-weight: bold;
+  background-color: black;
+  cursor: pointer;
 }
