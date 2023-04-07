@@ -9,8 +9,19 @@ import TurnGame from './components/TurnGame'
 import Board from './components/Board'
 
 function App() {
-  const [board, setBoard] = useState(Array(9).fill(null))
-  const [turn, setTurn] = useState(TURNS.x)
+  const [board, setBoard] = useState(() => {
+    const boardFromLocalStorage =
+      window.localStorage.getItem('board')
+    return boardFromLocalStorage
+      ? JSON.parse(boardFromLocalStorage)
+      : Array(9).fill(null)
+  })
+  const [turn, setTurn] = useState(() => {
+    const turnFromLocalStorage =
+      window.localStorage.getItem('turn')
+    return turnFromLocalStorage ?? TURNS.x
+  })
+
   const [winner, setWinner] = useState(null)
   // null es que no hay ganador, false es que hay empate
 
@@ -18,6 +29,9 @@ function App() {
     setBoard(Array(9).fill(null))
     setTurn(TURNS.x)
     setWinner(null)
+
+    window.localStorage.removeItem('board')
+    window.localStorage.removeItem('turn')
   }
 
   const updateBoard = (index) => {
@@ -30,6 +44,15 @@ function App() {
 
     const newTurn = turn === TURNS.x ? TURNS.o : TURNS.x
     setTurn(newTurn)
+    // Guardar la Partida
+    window.localStorage.setItem(
+      'board',
+      JSON.stringify(newBoard)
+    )
+    window.localStorage.setItem(
+      'turn',
+      JSON.stringify(turn)
+    )
     // Revisar si hay ganador
     const newWinner = checkWinner(newBoard)
     if (newWinner) {
@@ -42,7 +65,6 @@ function App() {
 
   return (
     <div className='App'>
-      <h1>Tres en Raya</h1>
       <Board
         board={board}
         updateBoard={updateBoard}
@@ -54,6 +76,11 @@ function App() {
         winner={winner}
         resetGame={resetGame}
       />
+      <button
+        className='winner-button'
+        onClick={resetGame}>
+        Resetear Juego
+      </button>
     </div>
   )
 }
