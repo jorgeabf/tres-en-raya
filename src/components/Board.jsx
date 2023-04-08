@@ -1,6 +1,6 @@
 import Square from './Square.jsx'
 
-function Board({ board, updateBoard }) {
+function Board ({ board, updateBoard }) {
   return (
     <main className='board'>
       {board.map((cell, index) => {
@@ -8,7 +8,8 @@ function Board({ board, updateBoard }) {
           <Square
             key={index}
             index={index}
-            updateBoard={updateBoard}>
+            updateBoard={updateBoard}
+          >
             {cell}
           </Square>
         )

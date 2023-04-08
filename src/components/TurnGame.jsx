@@ -1,7 +1,7 @@
 import Square from './Square'
 import { TURNS } from '../constans'
 
-function TurnGame({ turn }) {
+function TurnGame ({ turn }) {
   return (
     <aside className='turn'>
       <Square isSelected={turn === TURNS.x}>
