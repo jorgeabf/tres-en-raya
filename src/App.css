@@ -71,7 +71,7 @@
   border-radius: 0.3em;
   font-size: inherit;
   font-weight: bold;
-  background-color: black;
+  background-color: hsl(50, 100%, 50%);
   cursor: pointer;
-  color: white;
+  color: black;
 }
