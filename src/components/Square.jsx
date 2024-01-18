@@ -1,4 +1,4 @@
-function Square({
+function Square ({
   children,
   isSelected,
   updateBoard,
@@ -14,7 +14,8 @@ function Square({
   return (
     <div
       onClick={handleClick}
-      className={className}>
+      className={className}
+    >
       {children}
     </div>
   )

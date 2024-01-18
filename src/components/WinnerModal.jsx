@@ -14,7 +14,8 @@ const WinnerModal = ({ winner, resetGame }) => {
         <h3>{winnerMessage}</h3>
         <button
           className='winner-button'
-          onClick={resetGame}>
+          onClick={resetGame}
+        >
           Jugar otra vez
         </button>
       </div>

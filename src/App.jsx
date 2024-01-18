@@ -13,7 +13,7 @@ import {
   resetGameStorage
 } from './logic/storage'
 
-function App() {
+function App () {
   const [board, setBoard] = useState(() => {
     const boardFromLocalStorage =
       window.localStorage.getItem('board')
@@ -74,7 +74,8 @@ function App() {
       />
       <button
         className='winner-button'
-        onClick={resetGame}>
+        onClick={resetGame}
+      >
         Resetear Juego
       </button>
     </div>
